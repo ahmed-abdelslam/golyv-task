@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('number');
             $table->boolean('is_booked')->default(false);
             $table->foreignId('bus_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->timestamps();
         });
     }

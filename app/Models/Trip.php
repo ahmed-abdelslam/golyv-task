@@ -12,6 +12,11 @@ class Trip extends Model
 
     protected $fillable = ['departure_time', 'arrival_time'];
 
+    /**
+     * Relationships
+     */
+
+    // bus relationship
     public function bus()
     {
         return $this->belongsTo(Bus::class);

@@ -10,7 +10,7 @@ class Trip extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['departure_time', 'arrival_time'];
+    protected $fillable = ['departure_time', 'arrival_time', 'bus_id'];
 
     /**
      * Relationships

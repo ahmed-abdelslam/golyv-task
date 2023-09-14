@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Bus;
+use App\Models\Station;
 
 class Trip extends Model
 {
@@ -20,5 +21,11 @@ class Trip extends Model
     public function bus()
     {
         return $this->belongsTo(Bus::class);
+    }
+
+    // stations relationship
+    public function stations()
+    {
+        return $this->belongsToMany(Station::class);
     }
 }

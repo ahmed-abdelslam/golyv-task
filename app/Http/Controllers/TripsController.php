@@ -9,20 +9,25 @@ class TripsController extends Controller
 {
     public function bookSeat(Request $request)
     {
+        // Validate the request
         $this->validate($request, [
             'seat_id' => 'required|integer',
         ]);
 
+        // Find the seat with the given ID
         $seat = Seat::findOrFail($request->seat_id);
 
+        // Check if the seat is already booked
         if ($seat->is_booked) {
             return response()->json(['error' => 'Seat is already booked'], 400);
         }
 
+        // Update the seat's status and user ID
         $seat->is_booked = true;
         $seat->user_id = auth()->id();
         $seat->save();
 
+        // Return success message
         return response()->json(['message' => 'Seat booked successfully'], 200);
     }
 

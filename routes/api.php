@@ -24,3 +24,5 @@ Route::post('/auth/register', [AuthController::class, 'createUser']);
 Route::post('/auth/login', [AuthController::class, 'loginUser']);
 
 Route::post('/trips/book-seat', [TripsController::class, 'bookSeat'])->middleware('auth:sanctum');
+
+Route::get('/trips/available-seats', [TripsController::class, 'getAvailableSeats']);
